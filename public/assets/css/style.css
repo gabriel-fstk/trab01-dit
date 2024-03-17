@@ -1,0 +1,391 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+/* Box' Styles Generator */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 28px;
+}
+
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.controls {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.controls label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 16px;
+}
+
+input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    margin: 5px 0;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    background: #ddd;
+    border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #0056b3;
+}
+
+.preview {
+    width: 100%;
+    height: 200px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.css-code {
+    width: 100%;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: auto;
+    color: #333;
+    font-size: 14px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Terminal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    font-family: monospace;
+    color: #fff;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.terminal-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.terminal-input input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    font-family: monospace;
+}
+
+.terminal-line {
+    margin-bottom: 5px;
+}
+
+.user-line .prompt {
+    color: #6cc644;
+}
+
+.command-line .prompt {
+    color: #ffcc00;
+}
+
+.terminal-output {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.7) rgba(0, 0, 0, 0.3);
+}
+
+.terminal-output::-webkit-scrollbar {
+    width: 10px;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.terminal-output::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    z-index: 998;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#backgroundCodes {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    font-family: monospace;
+    color: lime;
+    overflow: hidden;
+    mix-blend-mode: screen;
+}
+
+.terminal-output {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.7) rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para o índice explicativo */
+.help-index {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 20px;
+    max-width: 80%;
+    text-align: justify;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.help-index p {
+    margin: 0 0 10px;
+}
+
+.help-index h2 {
+    margin-top: 0;
+}
+
+.help-index p:last-child {
+    margin-bottom: 0;
+}
+
+/* dropUp menu */
+
+@keyframes hackerAnimation {
+    0% {
+        color: #00ff00;
+    }
+    50% {
+        color: #ff0000;
+    }
+    100% {
+        color: #00ff00;
+    }
+}
+
+
+
+.dropbtn:hover {
+    background-color: #001100;
+}
+.dropup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.dropbtn {
+    animation: hackerAnimation 1s infinite;
+    color: white;
+    padding: 12px 24px;
+    background-color: #000;
+    color: #030303;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropbtn:hover {
+    background-color: #212421;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dropup-content {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 8px 0;
+    animation: fadeIn 0.5s ease;
+}
+
+.dropup-content button {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropup-content button:hover {
+    background-color: #f0f0f0;
+}
+
+/* copy code */
+
+.css-code-container {
+    position: relative;
+}
+
+.copy-code-text {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Ajuste para o canto superior direito */
+    color: #4CAF50;
+    font-size: 12px; /* Tamanho pequeno */
+    cursor: pointer;
+}
+
+.css-code {
+    margin-top: 20px; /* Espaço para o texto de cópia */
+    padding: 16px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Responsive */
+
+@media only screen and (min-width: 600px) {
+    .container {
+        padding: 40px;
+    }
+
+    .controls-container {
+        flex-direction: row;
+    }
+
+    .controls {
+        width: 45%;
+        margin-right: 5%;
+        margin-bottom: 0;
+    }
+
+    .preview,
+    .css-code {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .help-index {
+        max-width: 90%;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .dropup {
+        bottom: auto;
+        top: 20px;
+    }
+
+    .dropup-content {
+        bottom: auto;
+        top: 40px;
+    }
+}

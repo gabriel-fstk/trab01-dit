@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de CSS</title>
+    <link rel="stylesheet" href="public/assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gerador de CSS</h1>
+
+        <div class="controls-container">
+            <div class="controls">
+                <label for="boxShadow">Box Shadow:</label>
+                <input type="range" min="0" max="50" value="0" id="boxShadow">
+                <label for="borderRadius">Border Radius:</label>
+                <input type="range" min="0" max="50" value="0" id="borderRadius">
+                <label for="color">Cor de Fundo:</label>
+                <input type="color" id="color">
+            </div>
+            <div class="controls">
+                <label for="width">Largura:</label>
+                <input type="range" min="50" max="400" value="200" id="width">
+                <label for="height">Altura:</label>
+                <input type="range" min="50" max="400" value="200" id="height">
+                <label for="borderColor">Cor da Borda:</label>
+                <input type="color" id="borderColor">
+            </div>
+        </div>
+        <div class="preview"></div>
+        <div class="copy-code-text" onclick="copyCode()">Copy Code</div>
+        <pre class="css-code" id="cssCode"></pre>
+        
+    </div>
+    <!-- Índice explicativo -->
+
+    <div id="helpIndex" class="help-index" onclick="toggleHelpIndex()">
+        <p>Este é um gerador de estilos simples.</p>
+        <p>Você pode ajustar a sombra da caixa, o raio da borda, a cor de fundo, largura, altura e cor da borda.</p>
+        <p>Para abrir o terminal, clique no botão "Abrir Terminal" ou pressione Shift + T.</p>
+        <p>Depois de abrir o terminal, você pode digitar comandos simulados.</p>
+    </div>
+
+    <div id="backgroundCodes"></div>
+    <div id="overlay"></div>
+
+    <div id="terminalModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTerminal()">&times;</span>
+            <div class="terminal">
+                <div class="terminal-output" id="terminalOutput">
+                    <span class="terminal-line user-line"><span class="prompt">user@gsfk:~$</span> Welcome to GS
+                        Terminal</span>
+                </div>
+                <div class="terminal-input">
+                    <span class="prompt">user@gsfk:~$</span>
+                    <input type="text" id="terminalInput" autofocus onkeydown="handleKeyDown(event)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropup">
+        <button class="dropbtn" onclick="toggleDropup()">Menu</button>
+        <div class="dropup-content" id="myDropup">
+            <button onclick="openAndToggleTerminal()">Terminal</button>
+            <button onclick="toggleHelpIndex()">Índice de Ajuda</button>
+        </div>
+    </div>
+
+    <script src="public/assets/js/main.js"></script>
+    <script src="public/assets/js/terminal.js"></script>
+    <script src="public/assets/js/dropUp.js"></script>
+    <script src="public/assets/js/copyCode.js"></script>
+</body>
+
+</html>
